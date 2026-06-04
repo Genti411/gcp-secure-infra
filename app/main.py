@@ -26,8 +26,10 @@ def index():
     return jsonify(service="secure-app", status="running")
 
 
-@app.get("/healthz")
-def healthz():
+@app.get("/health")
+def health():
+    # Named /health, not /healthz: Google's edge intercepts the literal path
+    # /healthz on *.run.app before the request reaches the container.
     return jsonify(status="ok")
 
 

@@ -83,7 +83,8 @@ resource "google_cloud_run_v2_service" "svc" {
       resources {
         limits = {
           cpu    = "1"
-          memory = "256Mi"
+          # Cloud Run requires >= 512Mi when CPU is always-allocated.
+          memory = "512Mi"
         }
       }
     }

@@ -50,7 +50,7 @@ image with Cloud Build, then `terraform apply`s the SA, secret, Cloud Run servic
 and IAM — and prints the public HTTPS URL. Verify:
 
 ```bash
-curl https://YOUR-SERVICE-URL/healthz     # {"status":"ok"}
+curl https://YOUR-SERVICE-URL/health     # {"status":"ok"}
 curl https://YOUR-SERVICE-URL/secretz     # {"jwt_secret_loaded": true}  (secret never echoed)
 ```
 
@@ -77,7 +77,7 @@ secret access, no plaintext secrets) is already production-shaped.
 ## Layout
 
 ```
-app/                  tiny hardened Flask service (security headers, /healthz, /secretz)
+app/                  tiny hardened Flask service (security headers, /health, /secretz)
 terraform/            versions, variables, main (SA + secret + Cloud Run + IAM), outputs
 deploy.sh             build image + targeted apply + full apply
 .github/workflows/    terraform validate + tfsec + checkov gate
