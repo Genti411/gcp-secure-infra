@@ -1,0 +1,6 @@
+# Copy to terraform.tfvars and fill in (terraform.tfvars is gitignored).
+project_id = "your-gcp-project-id"
+region     = "us-central1"
+image      = "us-central1-docker.pkg.dev/your-gcp-project-id/secure-apps/secure-app:latest"
+# app_secret = "set-via-CI-secret-or-tfvars"   # sensitive; do not commit a real value
+# allow_public = true
